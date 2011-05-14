@@ -1,0 +1,32 @@
+Disclaimer: No warranty(or even implied) is offered by use of this script. By using this script, you do so at your own risk!
+
+Purpose of this script: To configure your Ubuntu 9.10(or later) GNU/Linux computer and your Verizon Droid phone as a tethered modem to use for Internet access.
+
+Requirements: Your machine must be connected to the Internet so the required dependencies can be downloaded. By using this script, YOU AGREE to the Android SDK license availabe at <http://developer.android.com/sdk/index.html>
+
+Follow these directions EXACTLY to install this script:
+
+1.) Connect your Droid with the USB cable to your computer then enable "USB debugging" on your Verizon Droid via Settings>Applications>Development
+
+2.) Download and extract this script and the icon picture. To extract, use the graphical file roller, or navigate from the terminal(hit alt+f2 then type gnome-terminal) to the directory where you downloaded the file and run this command:
+tar xvf Droid-Tether-SV.tgz
+
+3.) Change Directory into the newly extracted "Droid-Tether-SV" directory, then run the script
+cd Droid-Tether-SV
+sudo ./install_droidtethersv.py
+
+4.) When the script is complete, on your Verizon Droid, launch the 'azilink' app and place a checkmark by "Service active" so it can receive the connection from your Ubuntu machine.
+
+5.) Double-click the Droid-Tether-SV launcher on your desktop, enter your password in the resulting Terminal to connect your machine to the phone for Internet access. Note: In Firefox, you may have to uncheck "work offline" from the file menu to allow the Internet connection
+
+
+Known Issues: After running the install script for tethering, and then launching the tethering script via the double-click of the Desktop icon provided, your /etc/resolv.conf file will be overwritten to point dns to your Android vpn connection for Internet access. Since most normal people use DHCP, this is what happens at every connection to any network anyway and so I have not added a way for the startup script to backup your resolv.conf file everytime you connect to your Droid. So far, I have not been beaten over the head for this way of doing things, and so I don't plan on fixing it at this point. However, as of 06-24-10, I have added a simple command to the installation script that will backup your current resolv.conf file as "/etc/resolv.conf.preDroidTetherSV" in case you have some funky customizations in there that you need to get back later. Note: This happens only on installation of the script (one time only)! If you are some type of weirdo that doesn't use DHCP to connect your machine to the Internet, and you really must have your precious resolv.conf be set back to a customized configuration after everytime you connect to the Internet using this tethering script, my suggestion is that you create another small script that would simply copy "/etc/resolv.conf.preDroidTetherSV to /etc/resolv.conf" as necessary to give you your weirdness back.
+
+For more information, see <http://code.google.com/p/azilink/> and <http://developer.android.com/sdk/index.html>
+If you have any problems, feel free to email me at <shannon.vanwagner@linux.com>
+
+Post your comments about the script at http://tinyurl.com/tetherdroid
+
+Enjoy!
+Shannon VanWagner
+humans-enabled.com
